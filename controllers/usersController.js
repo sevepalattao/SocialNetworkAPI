@@ -1,6 +1,5 @@
 const User = require('../models/user');
 const Thought = require('../models/thought');
-const userController = require('../../UofM-VIRT-FSF-PT-08-2022-U-LOLC/18-NoSQL/01-Activities/26-Stu_CRUD-Subdoc/Solved/controllers/userController');
 
 module.exports = {
     getUsers(req, res) {
@@ -81,4 +80,4 @@ module.exports = {
     }
 }
 
-module.exports = userController;
+module.exports = usersController;
