@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Thought = require('../models/thought');
+const userController = require('../../UofM-VIRT-FSF-PT-08-2022-U-LOLC/18-NoSQL/01-Activities/26-Stu_CRUD-Subdoc/Solved/controllers/userController');
 
 module.exports = {
     getUsers(req, res) {
@@ -51,5 +52,33 @@ module.exports = {
           .catch((err) => res.status(500).json(err));
     },
 
+    addFriend(req, res) {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $addToSet: { friends: req.params.friendId }},
+            { new: true }
+        )
+          .then((user) =>
+          !user
+            ? res.status(404).json({ message: 'No user with this id!' })
+            : res.json(user)
+        )
+        .catch((err) => res.status(500).json(err));
+    },
 
+    deleteFriend(req, res) {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $pull: { friends: req.params.friendId }},
+            { new: true }
+        )
+          .then((user) => 
+          !user
+            ? res.status(404).json({ message: 'No user with this id!' })
+            : res.json(user)
+        )
+        .catch((err) => res.status(500).json(err));
+    }
 }
+
+module.exports = userController;
