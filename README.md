@@ -2,7 +2,7 @@
 
 ## Description
 
-For this week's challenge it was my job to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The API uses express, mongoDB, and the mongoose ODM. 
+Here I have built an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The API uses express, mongoDB, and the mongoose ODM. 
 
 ## Acceptance Criteria
 
